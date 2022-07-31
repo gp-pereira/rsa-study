@@ -1,4 +1,4 @@
-defmodule Rsa.MixProject do
+defmodule RSA.MixProject do
   use Mix.Project
 
   def project do
