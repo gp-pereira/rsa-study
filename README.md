@@ -1,21 +1,42 @@
-# Rsa
+# RSA
+Esse projeto implementa uma versão simplificada do algoritmo de encriptação RSA.
 
-**TODO: Add description**
+## Como executar
 
-## Installation
+1. Use o [docker](https://www.docker.com/products/docker-desktop/) para gerar uma imagem da aplicação e em seguida execute a shell interativa do elixir<sup>*</sup>.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `rsa` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:rsa, "~> 0.1.0"}
-  ]
-end
+```bash
+docker build -t rsa .
+docker run -it --rm rsa iex -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/rsa>.
+2. Gere um novo par de chaves.
 
+```elixir
+iex(1)> keys = RSA.Keys.generate()
+%{private_key: {939047, 763397}, public_key: {939047, 293}}
+```
+
+3. Use as chaves para encriptar e decriptar um texto.
+
+```elixir
+iex(2)> encrypted = RSA.encrypt_message("HELLOWORLD", keys.public_key)
+"206612112083155278155084"
+iex(3)> decrypted = RSA.decrypt_message(encrypted, keys.private_key)
+"HELLOWORLD"
+```
+
+4. Use as chaves para encriptar e decriptar um texto.
+
+<!-- ```elixir
+iex(4)> encrypted = RSA.encrypt_message("HELLOWORLD", keys.public_key)
+"206612112083155278155084"
+iex(5)> decrypted = RSA.decrypt_message(encrypted, keys.private_key)
+"HELLOWORLD"
+``` -->
+
+<sup>*</sup> Através da shell interativa, é possível acessar todo o código da aplicação como exemplificado acima. Você pode usar `TAB` para receber ajuda do autocomplete.
+
+## Autores
+- Gabriel Pereira - 95848
+- Fabiano Gomes - 93433
