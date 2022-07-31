@@ -1,5 +1,5 @@
 defmodule RSA.Message do
-  @alphabet "alphabet.txt"
+  @alphabet "lib/constant/alphabet.txt"
             |> File.read!()
             |> String.split(",")
 

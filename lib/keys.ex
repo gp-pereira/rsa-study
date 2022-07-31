@@ -1,7 +1,7 @@
 defmodule RSA.Keys do
   alias RSA.Math.Euclides
 
-  @primes "primes.txt"
+  @primes "lib/constant/primes.txt"
           |> File.read!()
           |> String.split(",")
           |> Enum.map(&String.to_integer/1)
