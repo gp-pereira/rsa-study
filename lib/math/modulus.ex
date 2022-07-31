@@ -1,4 +1,7 @@
 defmodule RSA.Math.Modulus do
+  @doc """
+  Recursively calculate remainder of base^exp and mod.
+  """
   def pow(base, exp, mod)
 
   def pow(0, _exp, _mod), do: 0
