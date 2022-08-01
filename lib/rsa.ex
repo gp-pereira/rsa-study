@@ -5,13 +5,15 @@ defmodule RSA do
 
   alias RSA.{
     Math,
-    Message
+    Message,
+    Chunk
   }
 
   def decrypt_message(message, {n, _} = private_key) do
     message
-    |> Message.Chunk.split_message(n)
+    |> Chunk.split_encrypted(n)
     |> Enum.map(&apply_key(&1, private_key))
+    |> Enum.map(&String.slice(&1, -Chunk.chunk_size(n)..-1))
     |> Enum.join()
     |> Message.decode()
   end
@@ -19,7 +21,7 @@ defmodule RSA do
   def encrypt_message(message, {n, _} = public_key) do
     message
     |> Message.encode()
-    |> Message.Chunk.split_message(n)
+    |> Chunk.split_encoded(n)
     |> Enum.map(&apply_key(&1, public_key))
     |> Enum.join()
   end
@@ -28,6 +30,6 @@ defmodule RSA do
     chunk
     |> String.to_integer()
     |> Math.Modulus.pow(key, n)
-    |> Message.Chunk.from_integer(n)
+    |> Chunk.from_integer(n)
   end
 end

@@ -13,13 +13,13 @@ defmodule RSA.SignatureTest do
   describe "create" do
     test "should create a signature using the private key" do
       assert Signature.create(@original_signature, @keys.private_key) ==
-               "637422643338711572154722817209732816"
+               "637422643338711572154722817209558490"
     end
   end
 
   describe "verify" do
     test "should return :ok if the signature was created by the private pair" do
-      signature = "637422643338711572154722817209732816"
+      signature = "637422643338711572154722817209558490"
 
       assert Signature.verify(signature, @original_signature, @keys.public_key) == :ok
     end
