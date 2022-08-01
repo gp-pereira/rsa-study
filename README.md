@@ -26,16 +26,7 @@ iex(3)> decrypted = RSA.decrypt_message(encrypted, keys.private_key)
 "HELLOWORLD"
 ```
 
-4. Use as chaves para encriptar e decriptar um texto.
-
-<!-- ```elixir
-iex(4)> encrypted = RSA.encrypt_message("HELLOWORLD", keys.public_key)
-"206612112083155278155084"
-iex(5)> decrypted = RSA.decrypt_message(encrypted, keys.private_key)
-"HELLOWORLD"
-``` -->
-
-<sup>*</sup> Através da shell interativa, é possível acessar todo o código da aplicação como exemplificado acima. Você pode usar `TAB` para receber ajuda do autocomplete.
+<sup>*</sup> Através da shell interativa, é possível acessar todo o código da aplicação como exemplificado acima. Você pode usar `TAB` para receber ajuda do autocomplete. Para facilitar a exploração do código, recomendamos executar os comandos no terminal integrado da IDE.
 
 ## Autores
 - Gabriel Pereira - 95848
