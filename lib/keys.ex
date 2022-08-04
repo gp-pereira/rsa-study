@@ -3,7 +3,7 @@ defmodule RSA.Keys do
 
   @primes "lib/constant/primes.txt"
           |> File.read!()
-          |> String.split(",")
+          |> String.split("\n")
           |> Enum.map(&String.to_integer/1)
 
   def generate(p \\ Enum.random(@primes), q \\ Enum.random(@primes)) do
